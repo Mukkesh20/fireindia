@@ -1,5 +1,6 @@
 <div class="container">
   <form novalidate (ngSubmit)="onSubmit()" #f="ngForm">
+    <fieldset ngModelGroup="name">
       <div class="form-group" [ngClass]="{
           'has-danger':
             name.invalid && (name.dirty || name.touched),
@@ -16,7 +17,7 @@
       <div class="form-group" [ngClass]="{
           'has-danger':
           (age.errors || !age.valid || age.value < 12 || age.value > 60) && (age.dirty || age.touched),
-          'has-success': (age.valid && !age.errors) && (age.dirty || age.touched)
+          'has-success': (age.valid || age.value >= 12 || age.value <= 60) && (age.dirty || age.touched)
         }">
         <label>Age</label>
         <input type="age" class="form-control" name="age" id="age" maxlength="2" [(ngModel)]="model.age" required
@@ -24,6 +25,7 @@
           <div class="alert alert-danger" role="alert" *ngIf="(age.errors || !age.valid || age.value < 12 || age.value > 60) && (age.dirty || age.touched)">Age is Invalid. Should be between 12 to 60.
         </div>
       </div>
+    </fieldset>
 
     <div class="form-group" [ngClass]="{
         'has-danger': retirementAge.invalid && (retirementAge.dirty || retirementAge.touched),
@@ -66,8 +68,9 @@
       </select>
     </div> -->
 
-    <button type="submit" class="btn btn-primary" [disabled]="f.invalid || f.errors">
-      Save and go next
+    <button type="submit" class="btn btn-primary" [disabled]="f.invalid">
+      Submit
     </button>
   </form>
 </div>
+

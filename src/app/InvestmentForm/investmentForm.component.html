@@ -1,0 +1,146 @@
+<div class="container">
+  <form novalidate (ngSubmit)="onSubmit()" #f="ngForm">
+    <div class="row g-2">
+      <div class="col-md">
+        <div class="form-floating">
+          <div style="float:left;" class="form-group" [ngClass]="{
+          'has-danger':
+            stocks.invalid && (stocks.dirty || stocks.touched),
+          'has-success':
+          stocks.valid && (stocks.dirty || stocks.touched)
+        }">
+            <label>Stocks</label>
+            <input type="number" class="form-control" name="stocks" id="stocks" [(ngModel)]="model.stocks"
+              placeholder="Stocks Current Value" required #stocks="ngModel" />
+            <div class="alert alert-danger" role="alert"
+              *ngIf="(stocks.errors || !stocks.valid) && (stocks.dirty || stocks.touched)">Amount is Invalid.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="form-floating">
+          <div>
+            <ngx-slider [(value)]="value" [options]="options"></ngx-slider>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="{
+        'has-danger':
+        mutualFunds.invalid && (mutualFunds.dirty || mutualFunds.touched),
+        'has-success':
+        mutualFunds.valid && (mutualFunds.dirty || mutualFunds.touched)
+      }">
+        <label>Mutual Funds</label>
+        <input type="number" class="form-control" name="mutualFunds" id="mutualFunds" [(ngModel)]="model.stocks"
+          placeholder="Mutual Funds Current Value" required #mutualFunds="ngModel" />
+        <div class="alert alert-danger" role="alert"
+          *ngIf="(mutualFunds.errors || !mutualFunds.valid) && (mutualFunds.dirty || mutualFunds.touched)">Amount is
+          Invalid.
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="{
+      'has-danger':
+        debtFunds.invalid && (debtFunds.dirty || debtFunds.touched),
+      'has-success':
+      debtFunds.valid && (debtFunds.dirty || debtFunds.touched)
+    }">
+        <label>Debt Funds</label>
+        <input type="number" class="form-control" name="debtFunds" id="debtFunds" [(ngModel)]="model.debtFunds"
+          placeholder="Debt Funds Current Value (EPF/PPF/FD/RD/Debt funds/Bonds etc)" required #debtFunds="ngModel" />
+        <div class="alert alert-danger" role="alert"
+          *ngIf="(debtFunds.errors || !debtFunds.valid) && (debtFunds.dirty || debtFunds.touched)">Amount is Invalid.
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="{
+    'has-danger':
+      gold.invalid && (gold.dirty || gold.touched),
+    'has-success':
+    gold.valid && (gold.dirty || gold.touched)
+  }">
+        <label>Gold</label>
+        <input type="number" class="form-control" name="gold" id="gold" [(ngModel)]="model.gold"
+          placeholder="Gold Current Value" required #gold="ngModel" />
+        <div class="alert alert-danger" role="alert"
+          *ngIf="(gold.errors || !gold.valid) && (gold.dirty || gold.touched)">Amount is Invalid.
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="{
+  'has-danger':
+    realEstate.invalid && (realEstate.dirty || realEstate.touched),
+  'has-success':
+  realEstate.valid && (realEstate.dirty || realEstate.touched)
+}">
+        <label>Real Estate</label>
+        <input type="number" class="form-control" name="realEstate" id="realEstate" [(ngModel)]="model.realEstate"
+          placeholder="Real Estate Current Value" required #realEstate="ngModel" />
+        <div class="alert alert-danger" role="alert"
+          *ngIf="(realEstate.errors || !realEstate.valid) && (realEstate.dirty || realEstate.touched)">Amount is
+          Invalid.
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="{
+  'has-danger':
+    crypto.invalid && (crypto.dirty || crypto.touched),
+  'has-success':
+  crypto.valid && (crypto.dirty || crypto.touched)
+}">
+        <label>Crypto</label>
+        <input type="number" class="form-control" name="crypto" id="crypto" [(ngModel)]="model.crypto"
+          placeholder="Crypto Current Value" required #crypto="ngModel" />
+        <div class="alert alert-danger" role="alert"
+          *ngIf="(crypto.errors || !crypto.valid) && (crypto.dirty || crypto.touched)">Amount is Invalid.
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="{
+  'has-danger':
+    emergencyFund.invalid && (emergencyFund.dirty || emergencyFund.touched),
+  'has-success':
+  emergencyFund.valid && (emergencyFund.dirty || emergencyFund.touched)
+}">
+        <label>Emergency Fund</label>
+        <input type="number" class="form-control" name="emergencyFund" id="emergencyFund"
+          [(ngModel)]="model.emergencyFund" placeholder="Emergency Fund Current Value" required
+          #emergencyFund="ngModel" />
+        <div class="alert alert-danger" role="alert"
+          *ngIf="(emergencyFund.errors || !emergencyFund.valid) && (emergencyFund.dirty || emergencyFund.touched)">
+          Amount is Invalid.
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="{
+  'has-danger':
+    others.invalid && (others.dirty || others.touched),
+  'has-success':
+  others.valid && (others.dirty || others.touched)
+}">
+        <label>Other Investments</label>
+        <input type="number" class="form-control" name="others" id="others" [(ngModel)]="model.others"
+          placeholder="Other Investments Current Value" required #others="ngModel" />
+        <div class="alert alert-danger" role="alert"
+          *ngIf="(others.errors || !others.valid) && (others.dirty || others.touched)">Amount is Invalid.
+        </div>
+      </div>
+
+
+
+      <!-- <div class="form-group">
+      <label>Language</label>
+      <select class="form-control" name="language" [(ngModel)]="model.language">
+        <option value="">Please select a language</option>
+        <option *ngFor="let lang of langs" [value]="lang">{{ lang }}</option>
+      </select>
+    </div> -->
+
+      <button type="submit" class="btn btn-primary" [disabled]="f.invalid">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

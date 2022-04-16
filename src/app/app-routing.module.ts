@@ -1,25 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { BasicFormComponent } from './basicForm/basicForm.component';
-import { TemplateFormComponent } from './templateForm/templateForm.component';
-import { ReactiveFormComponent } from './reactiveForm/reactiveForm.component';
-import { StarterTemplateFormComponent } from './starterTemplateForm/starterTemplateForm.component';
-import { StarterReactiveFormComponent } from './starterReactiveForm/starterReactiveForm.component';
-import { UpdateOnComponent } from './updateOn/updateOn.component';
-import { ControlValueAccessorComponent } from './controlValueAccessor/controlValueAccessor.component';
-import { ReactiveDynamicFormComponent } from './reactiveDynamicForm/reactive-dynamic-form.component';
+import { BasicFormComponent } from './BasicForm/basicForm.component';
+import { DebtFormComponent } from './DebtForm/debtForm.component';
+import { InvestmentFormComponent } from './InvestmentForm/investmentForm.component';
+import { ExpensesFormComponent } from './ExpensesForm/expensesForm.component';
+import { MiscellaneousFormComponent } from './MiscellaneousForm/miscellaneousForm.component';
+
 
 const routes: Routes = [
-  { path: '', pathMatch:'full', redirectTo: '/startertemplateform' },
-  { path: 'startertemplateform', component: StarterTemplateFormComponent    },
-  { path: 'starterreactiveform', component: StarterReactiveFormComponent },
-  { path: 'basicform',  component: BasicFormComponent },
-  { path: 'templateform',  component: TemplateFormComponent },
-  { path: 'reactiveform',     component: ReactiveFormComponent  },
-  { path: 'updateon', component: UpdateOnComponent },
-  { path: 'controlvalueaccessor', component: ControlValueAccessorComponent },
-  { path: 'reactivedynamicform', component: ReactiveDynamicFormComponent }
+  { path: '', pathMatch:'full', redirectTo: '/BasicDetails' },
+  { path: 'BasicDetails', component: BasicFormComponent    },
+  { path: 'DebtDetails', component: DebtFormComponent },
+  { path: 'InvestmentDetails',  component: InvestmentFormComponent },
+  { path: 'ExpensesDetails',  component: ExpensesFormComponent },
+  { path: 'MiscellaneousDetails',     component: MiscellaneousFormComponent  }
 ];
 
 @NgModule({
@@ -27,10 +22,9 @@ const routes: Routes = [
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {
-  static components = [ 
-    StarterTemplateFormComponent, StarterReactiveFormComponent,
-    BasicFormComponent, TemplateFormComponent, ReactiveFormComponent,
-    ControlValueAccessorComponent, UpdateOnComponent, ReactiveDynamicFormComponent
+  static components = [
+    BasicFormComponent, DebtFormComponent,
+    InvestmentFormComponent, ExpensesFormComponent, MiscellaneousFormComponent
   ];
 }
 
